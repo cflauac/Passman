@@ -1,15 +1,17 @@
 package com.kytse.passman;
 
 import android.app.Activity;
-import android.app.ActionBar;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.os.Build;
+import android.widget.Toast;
+
+import com.kytse.passman.utiil.DbxTool;
 
 public class MainActivity extends Activity {
 
@@ -60,6 +62,14 @@ public class MainActivity extends Activity {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
             return rootView;
         }
+    }
+    
+    public void unlinkToDropbox (MenuItem item) {
+    	DbxTool.mDbxAcctMgr.unlink();
+        Toast.makeText(getApplicationContext(), "unlinked to dropbox", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        finish();
+        startActivity(intent);
     }
 
 }
