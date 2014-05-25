@@ -123,6 +123,11 @@ public class MainActivity extends Activity {
         startActivity(intent);
     }
     
+    public void addAccount(MenuItem item) {
+        Intent intent = new Intent(MainActivity.this, AccountEditorActivity.class);
+        startActivity(intent);
+    }
+    
     public class AccountAdapter extends BaseAdapter {
     	private List<Account> mAccounts;
     	

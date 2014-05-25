@@ -2,6 +2,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.kytse.passman.MainActivity" >
 
+    <item android:id="@+id/action_new"
+          android:icon="@drawable/ic_action_new"
+          android:title="@string/action_new"
+          android:showAsAction="ifRoom"
+          android:onClick="addAccount"/>
+        
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
@@ -10,7 +16,7 @@
     
     <item
         android:id="@+id/action_unlink"
-        android:orderInCategory="100"
+        android:orderInCategory="50"
         android:showAsAction="never"
         android:onClick="unlinkToDropbox"
         android:title="@string/action_unlink"/>
