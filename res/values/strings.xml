@@ -6,5 +6,8 @@
     <string name="action_settings">Settings</string>
     <string name="button_link">Link</string>
     <string name="action_unlink">Unlink</string>
+    <string name="sample_domain">example.com</string>
+    <string name="sample_username">Chris_Wong</string>
+    <string name="sample_password">P@ssw0rd</string>
 
 </resources>

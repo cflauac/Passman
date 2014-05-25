@@ -22,7 +22,13 @@ public class LoginActivity extends Activity {
 		setContentView(R.layout.activity_login);
 
 		DbxTool.mDbxAcctMgr = DbxAccountManager.getInstance(getApplicationContext(), DbxTool.APP_KEY, DbxTool.APP_SECRET);
-
+		
+		if (DbxTool.mDbxAcctMgr.hasLinkedAccount()) {
+			Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+			finish();
+			startActivity(intent);
+		}
+		
 		if (savedInstanceState == null) {
 			getFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
@@ -85,17 +91,5 @@ public class LoginActivity extends Activity {
 			startActivity(intent);
         }
     }
-
-	@Override
-	protected void onResume() {
-		super.onResume();
-
-		if (DbxTool.mDbxAcctMgr.hasLinkedAccount()) {
-			Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-			finish();
-			startActivity(intent);
-		}
-		
-	}
 
 }
