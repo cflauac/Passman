@@ -80,15 +80,14 @@ public class LoginActivity extends Activity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == DbxTool.REQUEST_LINK_TO_DBX) {
             if (resultCode == RESULT_OK) {
+                super.onActivityResult(requestCode, resultCode, data);
+    			Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+    			finish();
+    			startActivity(intent);
             } else {
                 // ... Link failed or was cancelled by the user.
                 Toast.makeText(this, "Link to Dropbox failed.", Toast.LENGTH_SHORT).show();
             }
-        } else {
-            super.onActivityResult(requestCode, resultCode, data);
-			Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-			finish();
-			startActivity(intent);
         }
     }
 
