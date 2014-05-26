@@ -58,6 +58,10 @@
             android:name="com.kytse.passman.AccountDetailActivity"
             android:label="@string/title_activity_account_detail" >
         </activity>
+        <activity
+            android:name="com.kytse.passman.SettingsActivity"
+            android:label="@string/title_activity_settings" >
+        </activity>
     </application>
 
 </manifest>

@@ -97,6 +97,8 @@ public class MainActivity extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
+        	Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+        	startActivity(intent);
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -116,14 +118,6 @@ public class MainActivity extends Activity {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
             return rootView;
         }
-    }
-    
-    public void unlinkToDropbox (MenuItem item) {
-    	DbxTool.mDbxAcctMgr.unlink();
-        Toast.makeText(getApplicationContext(), "unlinked to dropbox", Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-        finish();
-        startActivity(intent);
     }
     
     public void addAccount(MenuItem item) {
