@@ -125,5 +125,7 @@ public class AccountTable {
 		return resultList;
 	}
 	
-	
+	public Account getAccount(String id) throws DbxException {
+		return new Account(mTable.get(id));
+	}
 }

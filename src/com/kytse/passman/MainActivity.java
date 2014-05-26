@@ -12,6 +12,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -54,6 +56,7 @@ public class MainActivity extends Activity {
 
         ListView accountsView = (ListView) findViewById(R.id.listView_account);
         accountsView.setAdapter(new AccountAdapter(accounts));
+        accountsView.setOnItemClickListener(new CustomizedOnItemClickListener(accounts));
 
     }
 
@@ -126,6 +129,23 @@ public class MainActivity extends Activity {
     public void addAccount(MenuItem item) {
         Intent intent = new Intent(MainActivity.this, AccountEditorActivity.class);
         startActivity(intent);
+    }
+    
+    public class CustomizedOnItemClickListener implements OnItemClickListener {
+    	private List<Account> mAccounts;
+    	
+    	public CustomizedOnItemClickListener(List<Account> accounts) {
+    		mAccounts = accounts;
+    	}
+    	
+		@Override
+		public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+				long arg3) {
+			Intent intent = new Intent(MainActivity.this, AccountDetailActivity.class);
+			intent.putExtra("id", mAccounts.get(arg2).getId());
+			startActivity(intent);
+		}
+    	
     }
     
     public class AccountAdapter extends BaseAdapter {

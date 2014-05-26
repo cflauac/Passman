@@ -54,6 +54,10 @@
             android:label="@string/title_activity_account_editor"
             android:windowSoftInputMode="adjustResize" >
         </activity>
+        <activity
+            android:name="com.kytse.passman.AccountDetailActivity"
+            android:label="@string/title_activity_account_detail" >
+        </activity>
     </application>
 
 </manifest>
